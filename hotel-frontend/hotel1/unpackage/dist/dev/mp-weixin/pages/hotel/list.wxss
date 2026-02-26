@@ -1,0 +1,294 @@
+
+.list-container.data-v-d3b6965c {
+	min-height: 100vh;
+	background-color: #f8f9fb;
+}
+.header-fixed.data-v-d3b6965c {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: #fff;
+	padding: 20rpx 24rpx 10rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.03);
+}
+
+/* 搜索框美化 */
+.search-main-box.data-v-d3b6965c {
+	display: flex;
+	align-items: center;
+	background: #f2f3f5;
+	height: 84rpx;
+	border-radius: 42rpx;
+	padding: 0 30rpx;
+}
+.city-picker.data-v-d3b6965c {
+	display: flex;
+	align-items: center;
+	min-width: 100rpx;
+}
+.c-name.data-v-d3b6965c {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333;
+}
+.c-icon.data-v-d3b6965c {
+	font-size: 16rpx;
+	color: #999;
+	margin-left: 8rpx;
+}
+.v-line.data-v-d3b6965c {
+	width: 2rpx;
+	height: 30rpx;
+	background: #ddd;
+	margin: 0 24rpx;
+}
+.search-input.data-v-d3b6965c {
+	flex: 1;
+	font-size: 26rpx;
+	color: #333;
+}
+.action-icons.data-v-d3b6965c {
+	display: flex;
+	align-items: center;
+}
+.mini-line.data-v-d3b6965c {
+	width: 1rpx;
+	height: 24rpx;
+	background: #ccc;
+	margin: 0 20rpx;
+}
+.icon-search.data-v-d3b6965c {
+	font-size: 32rpx;
+}
+.icon-map.data-v-d3b6965c {
+	font-size: 36rpx;
+}
+
+/* 过滤栏美化 */
+.filter-bar.data-v-d3b6965c {
+	display: flex;
+	align-items: center;
+	height: 80rpx;
+	margin-top: 10rpx;
+}
+.date-pill.data-v-d3b6965c {
+	background: #f0f7ff;
+	color: #0086F6;
+	font-size: 22rpx;
+	font-weight: bold;
+	padding: 10rpx 20rpx;
+	border-radius: 30rpx;
+	display: flex;
+	align-items: center;
+}
+.p-arrow.data-v-d3b6965c {
+	font-size: 14rpx;
+	margin-left: 8rpx;
+}
+.sort-group.data-v-d3b6965c {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 40rpx;
+}
+.sort-item.data-v-d3b6965c {
+	font-size: 24rpx;
+	color: #666;
+	position: relative;
+}
+.sort-item.active.data-v-d3b6965c {
+	color: #0086F6;
+	font-weight: bold;
+}
+
+/* 酒店卡片美化 */
+.scroll-body.data-v-d3b6965c {
+	height: calc(100vh - 200rpx);
+	padding: 20rpx;
+	box-sizing: border-box;
+}
+.hotel-card.data-v-d3b6965c {
+	display: flex;
+	background: #fff;
+	border-radius: 24rpx;
+	padding: 20rpx;
+	margin-bottom: 24rpx;
+	box-shadow: 0 8rpx 16rpx rgba(0, 0, 0, 0.02);
+}
+.h-thumb.data-v-d3b6965c {
+	width: 190rpx;
+	height: 240rpx;
+	border-radius: 16rpx;
+}
+.h-body.data-v-d3b6965c {
+	flex: 1;
+	margin-left: 24rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.h-name.data-v-d3b6965c {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #1a1a1a;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.h-score-row.data-v-d3b6965c {
+	display: flex;
+	align-items: baseline;
+	margin-top: 8rpx;
+}
+.h-score.data-v-d3b6965c {
+	font-size: 34rpx;
+	color: #0086F6;
+	font-weight: bold;
+}
+.h-score-text.data-v-d3b6965c {
+	font-size: 22rpx;
+	color: #0086F6;
+	margin: 0 12rpx;
+}
+.h-star.data-v-d3b6965c {
+	font-size: 22rpx;
+	color: #999;
+}
+.h-tags.data-v-d3b6965c {
+	display: flex;
+	gap: 12rpx;
+	margin-top: 10rpx;
+}
+.t-item.data-v-d3b6965c {
+	font-size: 20rpx;
+	padding: 4rpx 12rpx;
+	border-radius: 6rpx;
+}
+.t-blue.data-v-d3b6965c {
+	color: #0086F6;
+	background: #ebf5ff;
+}
+.t-orange.data-v-d3b6965c {
+	color: #ff6a00;
+	background: #fff4eb;
+}
+.h-price-row.data-v-d3b6965c {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 10rpx;
+}
+.p-unit.data-v-d3b6965c {
+	color: #ff4d4f;
+	font-size: 24rpx;
+	font-weight: bold;
+}
+.p-num.data-v-d3b6965c {
+	color: #ff4d4f;
+	font-size: 44rpx;
+	font-weight: bold;
+	margin: 0 4rpx;
+}
+.p-start.data-v-d3b6965c {
+	color: #999;
+	font-size: 20rpx;
+}
+
+/* 地图模式 */
+.map-box.data-v-d3b6965c {
+	width: 100%;
+	height: calc(100vh - 194rpx);
+	position: relative;
+}
+.map-instance.data-v-d3b6965c {
+	width: 100%;
+	height: 100%;
+}
+.floating-card.data-v-d3b6965c {
+	position: absolute;
+	bottom: 40rpx;
+	left: 30rpx;
+	right: 30rpx;
+	background: #fff;
+	border-radius: 28rpx;
+	padding: 24rpx;
+	display: flex;
+	box-shadow: 0 20rpx 40rpx rgba(0, 0, 0, 0.12);
+}
+.floating-card image.data-v-d3b6965c {
+	width: 110rpx;
+	height: 110rpx;
+	border-radius: 16rpx;
+}
+.f-info.data-v-d3b6965c {
+	flex: 1;
+	margin-left: 20rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.f-name.data-v-d3b6965c {
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.f-bottom.data-v-d3b6965c {
+	display: flex;
+	justify-content: space-between;
+}
+.f-score.data-v-d3b6965c {
+	font-size: 24rpx;
+	color: #0086F6;
+}
+.f-price.data-v-d3b6965c {
+	font-size: 28rpx;
+	color: #ff4d4f;
+	font-weight: bold;
+}
+.load-more.data-v-d3b6965c {
+	text-align: center;
+	padding: 40rpx;
+	font-size: 24rpx;
+	color: #999;
+}
+
+/* ✨新增：输入框左侧“✕”图标样式 */
+.reset-kw-btn.data-v-d3b6965c {
+	font-size: 22rpx;
+	color: #fff;
+	background: #ccc;
+	/* 浅灰色圆形背景 */
+	width: 30rpx;
+	height: 30rpx;
+	line-height: 28rpx;
+	text-align: center;
+	border-radius: 50%;
+	/* 圆形 */
+	margin-right: 12rpx;
+	/* 与输入框的间距 */
+	flex-shrink: 0;
+	/* 防止被挤压 */
+}
+
+/* ✨新增：筛选栏“重置”胶囊按钮样式 */
+.sort-item.reset-btn.data-v-d3b6965c {
+	color: #888;
+	/* 辅助色文字 */
+	background: #f0f0f0;
+	/* 浅灰底色 */
+	padding: 6rpx 20rpx;
+	/* 增加点击区域 */
+	border-radius: 30rpx;
+	/* 胶囊形状 */
+	font-size: 22rpx;
+	margin-left: 10rpx;
+	font-weight: normal;
+	/* 区别于选中的加粗状态 */
+}
+
+/* 按压效果 */
+.reset-btn.data-v-d3b6965c:active {
+	background: #e5e5e5;
+}
+

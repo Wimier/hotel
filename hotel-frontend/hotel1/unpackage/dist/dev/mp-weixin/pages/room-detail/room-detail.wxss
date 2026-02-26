@@ -1,0 +1,70 @@
+
+.room-detail-container.data-v-20253de4 { background: #f8f9fb; min-height: 100vh; padding-bottom: 140rpx;
+}
+.swiper-section.data-v-20253de4 { position: relative;
+}
+.room-swiper.data-v-20253de4 { height: 500rpx;
+}
+.swiper-img.data-v-20253de4 { width: 100%; height: 100%;
+}
+.image-count.data-v-20253de4 { position: absolute; right: 30rpx; bottom: 30rpx; background: rgba(0,0,0,0.5); color: #fff; padding: 4rpx 20rpx; border-radius: 20rpx; font-size: 22rpx;
+}
+.info-card.data-v-20253de4 { background: #fff; margin-bottom: 20rpx; padding: 30rpx;
+}
+.title-row.data-v-20253de4 { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30rpx;
+}
+.room-name.data-v-20253de4 { font-size: 38rpx; font-weight: bold; color: #333;
+}
+.room-tag.data-v-20253de4 { font-size: 22rpx; color: #0086F6; background: #eef7ff; padding: 4rpx 16rpx; border-radius: 6rpx;
+}
+.specs-grid.data-v-20253de4 { display: grid; grid-template-columns: 1fr 1fr; gap: 20rpx; background: #f9f9f9; padding: 24rpx; border-radius: 12rpx;
+}
+.spec-item.data-v-20253de4 { display: flex; align-items: center; font-size: 26rpx;
+}
+.spec-label.data-v-20253de4 { color: #999; width: 80rpx;
+}
+.spec-val.data-v-20253de4 { color: #333; font-weight: 500;
+}
+
+/* 设施板块 */
+.amenity-container.data-v-20253de4 { background: #fff; margin-bottom: 20rpx; padding: 30rpx;
+}
+.amenity-group.data-v-20253de4 { margin-bottom: 35rpx;
+}
+.group-title.data-v-20253de4 { font-size: 28rpx; font-weight: bold; color: #333; margin-bottom: 20rpx; display: flex; align-items: center;
+}
+.g-icon.data-v-20253de4 { margin-right: 10rpx; font-size: 32rpx;
+}
+.item-grid.data-v-20253de4 { display: grid; grid-template-columns: 1fr 1fr; row-gap: 15rpx; -webkit-column-gap: 20rpx; column-gap: 20rpx;
+}
+.item.data-v-20253de4 { font-size: 24rpx; color: #666; display: flex; align-items: center;
+}
+.sub-tag.data-v-20253de4 { font-size: 18rpx; color: #999; background: #f0f0f0; padding: 2rpx 6rpx; border-radius: 4rpx; margin-left: 6rpx;
+}
+.brand.data-v-20253de4 { color: #0086F6; margin-left: 6rpx;
+}
+.detail-section.data-v-20253de4, .policy-section.data-v-20253de4 { background: #fff; margin-bottom: 20rpx; padding: 30rpx;
+}
+.section-title.data-v-20253de4 { font-size: 30rpx; font-weight: bold; color: #333; margin-bottom: 15rpx;
+}
+.detail-content.data-v-20253de4 { font-size: 26rpx; color: #666; line-height: 1.6;
+}
+.policy-item.data-v-20253de4 { margin-bottom: 20rpx;
+}
+.p-tag.data-v-20253de4 { font-size: 24rpx; color: #333; font-weight: bold; display: block; margin-bottom: 6rpx;
+}
+.p-desc.data-v-20253de4 { font-size: 24rpx; color: #888; line-height: 1.4;
+}
+.bottom-bar.data-v-20253de4 { position: fixed; left: 0; bottom: 0; width: 100%; height: 120rpx; background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 40rpx; box-sizing: border-box; border-top: 1rpx solid #eee; z-index: 100; box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.05);
+}
+.price-info.data-v-20253de4 { color: #ff4d4f;
+}
+.unit.data-v-20253de4 { font-size: 28rpx; font-weight: bold;
+}
+.price.data-v-20253de4 { font-size: 48rpx; font-weight: bold;
+}
+.total.data-v-20253de4 { font-size: 24rpx; color: #999;
+}
+.book-btn.data-v-20253de4 { background: linear-gradient(90deg, #ffb84d, #ff9a14); color: #fff; margin: 0; padding: 0 60rpx; height: 80rpx; line-height: 80rpx; border-radius: 40rpx; font-size: 30rpx; font-weight: bold;
+}
+

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hotel.mapper.HotelRoomTypeMapper">
+    
+    <resultMap type="HotelRoomType" id="HotelRoomTypeResult">
+        <result property="id"    column="id"    />
+        <result property="hotelId"    column="hotel_id"    />
+        <result property="typeName"    column="type_name"    />
+        <result property="price"    column="price"    />
+        <result property="bedType"    column="bed_type"    />
+        <result property="hasWindow"    column="has_window"    />
+        <result property="hasBreakfast"    column="has_breakfast"    />
+        <result property="imageUrl"    column="image_url"    />
+        <result property="remark"    column="remark"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="roomCategory"    column="room_category"    />
+    </resultMap>
+
+    <sql id="selectHotelRoomTypeVo">
+        select id, hotel_id, type_name, price, bed_type, has_window, has_breakfast, image_url, remark, status, create_by, create_time, room_category from hotel_room_type
+    </sql>
+
+    <select id="selectHotelRoomTypeList" parameterType="HotelRoomType" resultMap="HotelRoomTypeResult">
+        <include refid="selectHotelRoomTypeVo"/>
+        <where>  
+            <if test="hotelId != null "> and hotel_id = #{hotelId}</if>
+            <if test="typeName != null  and typeName != ''"> and type_name like concat('%', #{typeName}, '%')</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="bedType != null  and bedType != ''"> and bed_type = #{bedType}</if>
+            <if test="hasWindow != null  and hasWindow != ''"> and has_window = #{hasWindow}</if>
+            <if test="hasBreakfast != null  and hasBreakfast != ''"> and has_breakfast = #{hasBreakfast}</if>
+            <if test="imageUrl != null  and imageUrl != ''"> and image_url = #{imageUrl}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="roomCategory != null  and roomCategory != ''"> and room_category = #{roomCategory}</if>
+        </where>
+    </select>
+    
+    <select id="selectHotelRoomTypeById" parameterType="Long" resultMap="HotelRoomTypeResult">
+        <include refid="selectHotelRoomTypeVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertHotelRoomType" parameterType="HotelRoomType" useGeneratedKeys="true" keyProperty="id">
+        insert into hotel_room_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hotelId != null">hotel_id,</if>
+            <if test="typeName != null and typeName != ''">type_name,</if>
+            <if test="price != null">price,</if>
+            <if test="bedType != null">bed_type,</if>
+            <if test="hasWindow != null">has_window,</if>
+            <if test="hasBreakfast != null">has_breakfast,</if>
+            <if test="imageUrl != null">image_url,</if>
+            <if test="remark != null">remark,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="roomCategory != null">room_category,</if>
+
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hotelId != null">#{hotelId},</if>
+            <if test="typeName != null and typeName != ''">#{typeName},</if>
+            <if test="price != null">#{price},</if>
+            <if test="bedType != null">#{bedType},</if>
+            <if test="hasWindow != null">#{hasWindow},</if>
+            <if test="hasBreakfast != null">#{hasBreakfast},</if>
+            <if test="imageUrl != null">#{imageUrl},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="roomCategory != null">#{roomCategory},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHotelRoomType" parameterType="HotelRoomType">
+        update hotel_room_type
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="hotelId != null">hotel_id = #{hotelId},</if>
+            <if test="typeName != null and typeName != ''">type_name = #{typeName},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="bedType != null">bed_type = #{bedType},</if>
+            <if test="hasWindow != null">has_window = #{hasWindow},</if>
+            <if test="hasBreakfast != null">has_breakfast = #{hasBreakfast},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="roomCategory != null">room_category = #{roomCategory},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHotelRoomTypeById" parameterType="Long">
+        delete from hotel_room_type where id = #{id}
+    </delete>
+
+    <delete id="deleteHotelRoomTypeByIds" parameterType="String">
+        delete from hotel_room_type where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

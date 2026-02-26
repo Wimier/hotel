@@ -1,0 +1,50 @@
+
+.comment-detail-container.data-v-2b7e7530 { min-height: 100vh; background: #f8f9fb; padding: 24rpx; padding-bottom: 140rpx;
+}
+.info-card.data-v-2b7e7530 { background: #fff; border-radius: 20rpx; padding: 30rpx; margin-bottom: 24rpx;
+}
+.hotel-header.data-v-2b7e7530 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10rpx;
+}
+.hotel-name.data-v-2b7e7530 { font-size: 30rpx; font-weight: bold; color: #333;
+}
+.order-sn.data-v-2b7e7530 { font-size: 22rpx; color: #999;
+}
+.room-type.data-v-2b7e7530 { font-size: 24rpx; color: #666;
+}
+.section.data-v-2b7e7530 { background: #fff; border-radius: 20rpx; padding: 30rpx; margin-bottom: 24rpx;
+}
+.section-title.data-v-2b7e7530 { font-size: 28rpx; font-weight: bold; margin-bottom: 20rpx; color: #333;
+}
+.rate-box.data-v-2b7e7530 { display: flex; align-items: center; margin-bottom: 30rpx;
+}
+.score-text.data-v-2b7e7530 { margin-left: 20rpx; color: #ff9900; font-size: 28rpx;
+}
+.content-box.data-v-2b7e7530 { background: #fafafa; border-radius: 12rpx; padding: 20rpx;
+}
+.comment-input.data-v-2b7e7530 { width: 100%; height: 200rpx; font-size: 28rpx;
+}
+.word-count.data-v-2b7e7530 { display: block; text-align: right; font-size: 22rpx; color: #ccc;
+}
+.image-grid.data-v-2b7e7530 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15rpx;
+}
+.image-item.data-v-2b7e7530, .upload-btn.data-v-2b7e7530 { width: 150rpx; height: 150rpx; border-radius: 12rpx; position: relative;
+}
+.image-item image.data-v-2b7e7530 { width: 100%; height: 100%; border-radius: 12rpx;
+}
+.delete-btn.data-v-2b7e7530 { position: absolute; top: -10rpx; right: -10rpx; width: 36rpx; height: 36rpx; background: rgba(0,0,0,0.5); color: #fff; border-radius: 50%; text-align: center; line-height: 32rpx;
+}
+.upload-btn.data-v-2b7e7530 { border: 2rpx dashed #ddd; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.reply-section.data-v-2b7e7530 { background: #fffbe6; border-radius: 20rpx; padding: 30rpx; border: 1rpx solid #ffe58f;
+}
+.reply-title.data-v-2b7e7530 { font-size: 26rpx; font-weight: bold; color: #856404; margin-bottom: 10rpx;
+}
+.reply-content.data-v-2b7e7530 { font-size: 26rpx; color: #856404; line-height: 1.6;
+}
+.reply-date.data-v-2b7e7530 { font-size: 22rpx; color: #999; margin-top: 10rpx;
+}
+.footer.data-v-2b7e7530 { position: fixed; bottom: 0; left: 0; width: 100%; padding: 20rpx 40rpx; background: #fff; box-sizing: border-box;
+}
+.submit-btn.data-v-2b7e7530 { background: #0086F6; color: #fff; border-radius: 44rpx; font-size: 30rpx; height: 88rpx; line-height: 88rpx;
+}
+

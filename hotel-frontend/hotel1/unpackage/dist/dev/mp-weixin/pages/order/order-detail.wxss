@@ -1,0 +1,155 @@
+
+.order-detail-container.data-v-9f310eec {
+	min-height: 100vh;
+	background-color: #f8f9fb;
+	padding-bottom: 140rpx;
+}
+.status-banner.data-v-9f310eec {
+	height: 260rpx;
+	padding: 0 40rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #fff;
+}
+.bg-status-0.data-v-9f310eec {
+	background: linear-gradient(135deg, #ff8e3c, #ff4d4f);
+}
+.bg-status-1.data-v-9f310eec {
+	background: linear-gradient(135deg, #00b4f6, #0086f6);
+}
+.bg-status-3.data-v-9f310eec {
+	background: linear-gradient(135deg, #6aaa17, #1cab5f);
+}
+.bg-status-4.data-v-9f310eec,
+.bg-status-5.data-v-9f310eec {
+	background: #999;
+}
+.status-text.data-v-9f310eec {
+	font-size: 44rpx;
+	font-weight: bold;
+}
+.status-desc.data-v-9f310eec {
+	font-size: 24rpx;
+	opacity: 0.9;
+	margin-top: 10rpx;
+}
+.status-icon.data-v-9f310eec {
+	font-size: 80rpx;
+	opacity: 0.3;
+}
+.info-card.data-v-9f310eec {
+	background: #fff;
+	margin: -40rpx 30rpx 24rpx;
+	border-radius: 24rpx;
+	padding: 32rpx;
+	box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+}
+.hotel-card.data-v-9f310eec {
+	margin-top: -60rpx;
+	position: relative;
+	z-index: 10;
+}
+.hotel-header.data-v-9f310eec {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30rpx;
+}
+.hotel-name.data-v-9f310eec {
+	font-size: 34rpx;
+	font-weight: bold;
+}
+.room-type.data-v-9f310eec {
+	font-size: 26rpx;
+	color: #666;
+	margin-top: 8rpx;
+	display: block;
+}
+.arrow.data-v-9f310eec {
+	font-size: 24rpx;
+	color: #0086f6;
+}
+.date-row.data-v-9f310eec {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24rpx;
+	background: #f9fbff;
+	border-radius: 16rpx;
+}
+.d-label.data-v-9f310eec {
+	font-size: 22rpx;
+	color: #999;
+}
+.d-val.data-v-9f310eec {
+	font-size: 32rpx;
+	font-weight: bold;
+}
+.nights-tag.data-v-9f310eec {
+	font-size: 22rpx;
+	color: #0086f6;
+	border: 1rpx solid #0086f6;
+	border-radius: 20rpx;
+	padding: 2rpx 16rpx;
+}
+.card-title.data-v-9f310eec {
+	font-size: 30rpx;
+	font-weight: bold;
+	margin-bottom: 24rpx;
+}
+.detail-item.data-v-9f310eec {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20rpx;
+}
+.i-label.data-v-9f310eec {
+	font-size: 26rpx;
+	color: #999;
+}
+.i-val.data-v-9f310eec {
+	font-size: 26rpx;
+	color: #333;
+}
+.total-price.data-v-9f310eec {
+	color: #ff4d4f;
+	font-size: 34rpx;
+	font-weight: bold;
+}
+.price-row.data-v-9f310eec {
+	padding-top: 20rpx;
+	border-top: 1rpx solid #f2f2f2;
+	margin-top: 20rpx;
+}
+.bottom-action.data-v-9f310eec {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 120rpx;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 0 30rpx;
+	box-sizing: border-box;
+	box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+	gap: 20rpx;
+}
+.action-btn.data-v-9f310eec {
+	height: 80rpx;
+	line-height: 80rpx;
+	border-radius: 40rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+	margin: 0;
+	padding: 0 40rpx;
+}
+.pay-btn.data-v-9f310eec {
+	background: #0086f6;
+	color: #fff;
+}
+.cancel-btn.data-v-9f310eec,
+.refund-btn.data-v-9f310eec {
+	background: #f5f5f5;
+	color: #666;
+}
+

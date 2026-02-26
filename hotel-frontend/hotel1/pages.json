@@ -1,0 +1,146 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "酒店首页"
+			}
+		},
+		{
+			"path": "pages/hotel/list",
+			"style": {
+				"navigationBarTitleText": "酒店列表",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/hotel/comment-list",
+			"style": {
+				"navigationBarTitleText": "评价列表",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/order/create",
+			"style": {
+				"navigationBarTitleText": "下单"
+			}
+		},
+		{
+			"path": "pages/order/order-detail",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			"path": "pages/order/comment",
+			"style": {
+				"navigationBarTitleText": "评价"
+			}
+		},
+		{
+			"path": "pages/comment/comment-detail",
+			"style": {
+				"navigationBarTitleText": "评价详情"
+			}
+		},
+		{
+			"path": "pages/comment/comment",
+			"style": {
+				"navigationBarTitleText": "住客评价"
+			}
+		},
+		{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/me/password",
+			"style": {
+				"navigationBarTitleText": "修改密码"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/city/city",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}
+	,{
+    "style": {
+        "enablePullDownRefresh": false,
+        "navigationBarTitleText": "城市选择"
+    }
+},
+{
+	"path": "pages/detail/detail",
+	"style": {
+		"navigationBarTitleText": ""
+	}
+},
+{
+	"path": "pages/room-detail/room-detail",
+	"style": {
+		"navigationBarTitleText": ""
+	}
+}
+],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "酒店预订",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home_active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"iconPath": "static/tabbar/order.png",
+				"selectedIconPath": "static/tabbar/order_active.png",
+				"text": "订单"
+			},
+			{
+				"pagePath": "pages/comment/comment",
+				"iconPath": "static/tabbar/comment.png",
+				"selectedIconPath": "static/tabbar/comment_active.png",
+				"text": "点评"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"iconPath": "static/tabbar/me.png",
+				"selectedIconPath": "static/tabbar/me_active.png",
+				"text": "我的"
+			}
+		]
+	}
+}

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hotel.mapper.HotelOrderMapper">
+
+    <resultMap type="HotelOrder" id="HotelOrderResult">
+        <result property="id"    column="id"    />
+        <result property="orderSn"    column="order_sn"    />
+        <result property="userId"    column="user_id"    />
+        <result property="hotelId"    column="hotel_id"    />
+        <result property="roomTypeId"    column="room_type_id"    />
+        <result property="roomCount"    column="room_count"    />
+        <result property="checkInDate"    column="check_in_date"    />
+        <result property="checkOutDate"    column="check_out_date"    />
+        <result property="totalDays"    column="total_days"    />
+        <result property="totalAmount"    column="total_amount"    />
+        <result property="guestName"    column="guest_name"    />
+        <result property="guestPhone"    column="guest_phone"    />
+        <result property="status"    column="status"    />
+        <result property="payTime"    column="pay_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="hotelName"    column="hotel_name"    />
+        <result property="roomTypeName"    column="room_type_name"    />
+        <result property="commentStatus"    column="comment_status"    />
+        <result property="commentId"    column="comment_id"    />
+        <result property="roomImage" column="room_image" />
+    </resultMap>
+
+    <sql id="selectHotelOrderVo">
+        select
+            o.id, o.order_sn, o.user_id, o.hotel_id, o.room_type_id, o.room_count,
+            o.check_in_date, o.check_out_date, o.total_days, o.total_amount,
+            o.guest_name, o.guest_phone, o.status, o.pay_time, o.remark,
+            o.create_time, o.comment_status,
+            c.id as comment_id,  h.name_cn as hotel_name,
+            rt.type_name as room_type_name,
+            rt.image_url as room_image
+        from hotel_order o
+                 left join hotel_info h on o.hotel_id = h.id
+                 left join hotel_room_type rt on o.room_type_id = rt.id
+                 left join hotel_comment c on o.id = c.order_id
+    </sql>
+
+    <select id="selectHotelOrderList" parameterType="HotelOrder" resultMap="HotelOrderResult">
+        <include refid="selectHotelOrderVo"/>
+        <where>
+            <if test="orderSn != null  and orderSn != ''"> and o.order_sn = #{orderSn}</if>
+            <if test="userId != null "> and o.user_id = #{userId}</if>
+            <if test="hotelId != null "> and o.hotel_id = #{hotelId}</if>
+            <if test="roomTypeId != null "> and o.room_type_id = #{roomTypeId}</if>
+            <if test="status != null "> and o.status = #{status}</if>
+            <if test="guestName != null  and guestName != ''"> and o.guest_name like concat('%', #{guestName}, '%')</if>
+            <if test="guestPhone != null  and guestPhone != ''"> and o.guest_phone = #{guestPhone}</if>
+            <if test="checkInDate != null "> and o.check_in_date = #{checkInDate}</if>
+            <if test="checkOutDate != null "> and o.check_out_date = #{checkOutDate}</if>
+            <if test="commentStatus != null "> and o.comment_status = #{commentStatus}</if>
+        </where>
+        order by o.create_time desc
+    </select>
+
+    <select id="selectHotelOrderById" parameterType="Long" resultMap="HotelOrderResult">
+        <include refid="selectHotelOrderVo"/>
+        where o.id = #{id}
+    </select>
+
+    <insert id="insertHotelOrder" parameterType="HotelOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into hotel_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderSn != null and orderSn != ''">order_sn,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="hotelId != null">hotel_id,</if>
+            <if test="roomTypeId != null">room_type_id,</if>
+            <if test="roomCount != null">room_count,</if>
+            <if test="checkInDate != null">check_in_date,</if>
+            <if test="checkOutDate != null">check_out_date,</if>
+            <if test="totalDays != null">total_days,</if>
+            <if test="totalAmount != null">total_amount,</if>
+            <if test="guestName != null and guestName != ''">guest_name,</if>
+            <if test="guestPhone != null and guestPhone != ''">guest_phone,</if>
+            <if test="status != null">status,</if>
+            <if test="payTime != null">pay_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="commentStatus != null">comment_status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderSn != null and orderSn != ''">#{orderSn},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="hotelId != null">#{hotelId},</if>
+            <if test="roomTypeId != null">#{roomTypeId},</if>
+            <if test="roomCount != null">#{roomCount},</if>
+            <if test="checkInDate != null">#{checkInDate},</if>
+            <if test="checkOutDate != null">#{checkOutDate},</if>
+            <if test="totalDays != null">#{totalDays},</if>
+            <if test="totalAmount != null">#{totalAmount},</if>
+            <if test="guestName != null and guestName != ''">#{guestName},</if>
+            <if test="guestPhone != null and guestPhone != ''">#{guestPhone},</if>
+            <if test="status != null">#{status},</if>
+            <if test="payTime != null">#{payTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="commentStatus != null">#{comment_status},</if>
+        </trim>
+    </insert>
+
+    <update id="updateHotelOrder" parameterType="HotelOrder">
+        update hotel_order
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="orderSn != null and orderSn != ''">order_sn = #{orderSn},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="hotelId != null">hotel_id = #{hotelId},</if>
+            <if test="roomTypeId != null">room_type_id = #{roomTypeId},</if>
+            <if test="roomCount != null">room_count = #{roomCount},</if>
+            <if test="checkInDate != null">check_in_date = #{checkInDate},</if>
+            <if test="checkOutDate != null">check_out_date = #{checkOutDate},</if>
+            <if test="totalDays != null">total_days = #{totalDays},</if>
+            <if test="totalAmount != null">total_amount = #{totalAmount},</if>
+            <if test="guestName != null and guestName != ''">guest_name = #{guestName},</if>
+            <if test="guestPhone != null and guestPhone != ''">guest_phone = #{guestPhone},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="payTime != null">pay_time = #{payTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="commentStatus != null">comment_status = #{commentStatus},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHotelOrderById" parameterType="Long">
+        delete from hotel_order where id = #{id}
+    </delete>
+
+    <delete id="deleteHotelOrderByIds" parameterType="String">
+        delete from hotel_order where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="countTotalRoomsByTypeId" resultType="Integer">
+        SELECT COUNT(id) FROM hotel_room
+        WHERE room_type_id = #{roomTypeId}
+          AND status != '2'
+    </select>
+
+    <select id="countOccupiedRooms" resultType="Integer">
+        SELECT SUM(room_count)
+        FROM hotel_order
+        WHERE room_type_id = #{roomTypeId}
+          AND status IN (0, 1, 2)
+          AND check_in_date &lt; #{checkOutDate}
+          AND check_out_date &gt; #{checkInDate}
+    </select>
+</mapper>

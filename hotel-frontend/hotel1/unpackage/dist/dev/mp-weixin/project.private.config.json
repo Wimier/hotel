@@ -1,0 +1,50 @@
+{
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/comment/comment",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
+        },
+        {
+          "name": "pages/me/me",
+          "pathName": "pages/me/me",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/comment/comment",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/order/order",
+          "pathName": "pages/order/order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/hotel/list",
+          "pathName": "pages/hotel/list",
+          "query": "params=%257B%2522city%2522%253A%2522%25E4%25B8%258A%25E6%25B5%25B7%2522%252C%2522checkInDate%2522%253A%252202%25E6%259C%258825%25E6%2597%25A5%2522%252C%2522checkOutDate%2522%253A%252202%25E6%259C%258826%25E6%2597%25A5%2522%252C%2522realCheckIn%2522%253A%25222026-02-25%2522%252C%2522realCheckOut%2522%253A%25222026-02-26%2522%252C%2522days%2522%253A1%252C%2522keyword%2522%253A%2522%2522%252C%2522filters%2522%253A%255B%255D%257D",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

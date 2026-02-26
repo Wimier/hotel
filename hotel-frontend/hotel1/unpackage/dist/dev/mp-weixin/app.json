@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/hotel/list",
+    "pages/hotel/comment-list",
+    "pages/order/order",
+    "pages/order/create",
+    "pages/order/order-detail",
+    "pages/order/comment",
+    "pages/comment/comment-detail",
+    "pages/comment/comment",
+    "pages/me/me",
+    "pages/me/password",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/city/city",
+    "pages/detail/detail",
+    "pages/room-detail/room-detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "酒店预订",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "static/tabbar/order.png",
+        "selectedIconPath": "static/tabbar/order_active.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/comment/comment",
+        "iconPath": "static/tabbar/comment.png",
+        "selectedIconPath": "static/tabbar/comment_active.png",
+        "text": "点评"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "static/tabbar/me.png",
+        "selectedIconPath": "static/tabbar/me_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于为您推荐附近的酒店"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {}
+}

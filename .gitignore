@@ -1,0 +1,14 @@
+# 后端忽略
+hotel-backend/target/
+hotel-backend/*.iml
+hotel-backend/.idea/
+
+# 前端忽略
+hotel-frontend/node_modules/
+hotel-frontend/unpackage/
+hotel-frontend/dist/
+hotel-frontend/.hbuilderx/
+
+# 系统忽略
+.DS_Store
+Thumbs.db

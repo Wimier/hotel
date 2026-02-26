@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hotel.mapper.HotelCommentMapper">
+
+    <resultMap type="HotelComment" id="HotelCommentResult">
+        <result property="id"    column="id"    />
+        <result property="orderId"    column="order_id"    />
+        <result property="orderSn"    column="order_sn"    />
+        <result property="userId"    column="user_id"    />
+        <result property="hotelId"    column="hotel_id"    />
+        <result property="roomTypeId"    column="room_type_id"    />
+        <result property="score"    column="score"    />
+        <result property="content"    column="content"    />
+        <result property="images"    column="images"    />
+        <result property="isAnonymous"    column="is_anonymous"    />
+        <result property="replyContent"    column="reply_content"    />
+        <result property="replyTime"    column="reply_time"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="userName"      column="user_name"      />
+        <result property="userAvatar"    column="user_avatar"    />
+        <result property="roomTypeName"  column="room_type_name" />
+    </resultMap>
+
+    <sql id="selectHotelCommentVo">
+        select
+            c.id, c.order_id, c.order_sn, c.user_id, c.hotel_id, c.room_type_id,
+            c.score, c.content, c.images, c.is_anonymous, c.reply_content,
+            c.reply_time, c.status, c.create_by, c.create_time, c.update_by, c.update_time,
+            u.nick_name as user_name,      u.avatar as user_avatar,       rt.type_name as room_type_name from hotel_comment c
+                                                                                                                  left join sys_user u on c.user_id = u.user_id
+                                                                                                                  left join hotel_room_type rt on c.room_type_id = rt.id
+    </sql>
+
+    <select id="selectHotelCommentList" parameterType="HotelComment" resultMap="HotelCommentResult">
+        <include refid="selectHotelCommentVo"/>
+        <where>
+            <if test="orderId != null "> and c.order_id = #{orderId}</if>
+            <if test="orderSn != null  and orderSn != ''"> and c.order_sn = #{orderSn}</if>
+            <if test="userId != null "> and c.user_id = #{userId}</if>
+            <if test="hotelId != null "> and c.hotel_id = #{hotelId}</if>
+            <if test="roomTypeId != null "> and c.room_type_id = #{roomTypeId}</if>
+            <if test="score != null "> and c.score = #{score}</if>
+            <if test="content != null  and content != ''"> and c.content = #{content}</if>
+            <if test="isAnonymous != null "> and c.is_anonymous = #{isAnonymous}</if>
+            <if test="status != null "> and c.status = #{status}</if>
+        </where>
+        order by c.create_time desc
+    </select>
+
+    <select id="selectHotelCommentById" parameterType="Long" resultMap="HotelCommentResult">
+        <include refid="selectHotelCommentVo"/>
+        where c.id = #{id}
+    </select>
+
+    <select id="selectAvgScoreByHotelId" resultType="Double">
+        SELECT AVG(score) FROM hotel_comment
+        WHERE hotel_id = #{hotelId} AND status = 1
+    </select>
+
+    <insert id="insertHotelComment" parameterType="HotelComment" useGeneratedKeys="true" keyProperty="id">
+        insert into hotel_comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">order_id,</if>
+            <if test="orderSn != null">order_sn,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="hotelId != null">hotel_id,</if>
+            <if test="roomTypeId != null">room_type_id,</if>
+            <if test="score != null">score,</if>
+            <if test="content != null">content,</if>
+            <if test="images != null">images,</if>
+            <if test="isAnonymous != null">is_anonymous,</if>
+            <if test="replyContent != null">reply_content,</if>
+            <if test="replyTime != null">reply_time,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">#{orderId},</if>
+            <if test="orderSn != null">#{orderSn},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="hotelId != null">#{hotelId},</if>
+            <if test="roomTypeId != null">#{roomTypeId},</if>
+            <if test="score != null">#{score},</if>
+            <if test="content != null">#{content},</if>
+            <if test="images != null">#{images},</if>
+            <if test="isAnonymous != null">#{isAnonymous},</if>
+            <if test="replyContent != null">#{replyContent},</if>
+            <if test="replyTime != null">#{replyTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateHotelComment" parameterType="HotelComment">
+        update hotel_comment
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="orderId != null">order_id = #{orderId},</if>
+            <if test="orderSn != null">order_sn = #{orderSn},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="hotelId != null">hotel_id = #{hotelId},</if>
+            <if test="roomTypeId != null">room_type_id = #{roomTypeId},</if>
+            <if test="score != null">score = #{score},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="images != null">images = #{images},</if>
+            <if test="isAnonymous != null">is_anonymous = #{isAnonymous},</if>
+            <if test="replyContent != null">reply_content = #{replyContent},</if>
+            <if test="replyTime != null">reply_time = #{replyTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHotelCommentById" parameterType="Long">
+        delete from hotel_comment where id = #{id}
+    </delete>
+
+    <delete id="deleteHotelCommentByIds" parameterType="String">
+        delete from hotel_comment where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

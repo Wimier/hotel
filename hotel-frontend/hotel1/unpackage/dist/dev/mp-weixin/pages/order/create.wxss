@@ -1,0 +1,160 @@
+
+.order-create-container.data-v-63772556 {
+	background: #f8f9fb;
+	min-height: 100vh;
+	padding: 24rpx;
+}
+.room-preview-card.data-v-63772556 {
+	background: #fff;
+	border-radius: 20rpx;
+	padding: 24rpx;
+	display: flex;
+	align-items: center;
+	margin-bottom: 24rpx;
+}
+.room-img.data-v-63772556 {
+	width: 150rpx;
+	height: 150rpx;
+	border-radius: 12rpx;
+	flex-shrink: 0;
+	background: #f0f0f0;
+}
+.room-detail.data-v-63772556 {
+	margin-left: 24rpx;
+	flex: 1;
+}
+.hotel-name.data-v-63772556 {
+	font-size: 24rpx;
+	color: #999;
+	margin-bottom: 8rpx;
+	display: block;
+}
+.room-type-name.data-v-63772556 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 12rpx;
+	display: block;
+}
+.date-info.data-v-63772556 {
+	font-size: 24rpx;
+	color: #0086F6;
+	background: #f0f8ff;
+	padding: 8rpx 16rpx;
+	border-radius: 8rpx;
+	display: inline-block;
+}
+.order-form.data-v-63772556,
+.pay-method-section.data-v-63772556 {
+	background: #fff;
+	border-radius: 20rpx;
+	padding: 0 30rpx;
+	margin-bottom: 24rpx;
+}
+.form-row.data-v-63772556 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 110rpx;
+	border-bottom: 1rpx solid #f8f8f8;
+}
+.form-row.data-v-63772556:last-child {
+	border-bottom: none;
+}
+.label.data-v-63772556 {
+	font-size: 28rpx;
+	color: #333;
+}
+.input-field.data-v-63772556 {
+	flex: 1;
+	text-align: right;
+	font-size: 28rpx;
+	color: #333;
+}
+.stepper.data-v-63772556 {
+	display: flex;
+	align-items: center;
+	border: 1rpx solid #eee;
+	border-radius: 8rpx;
+}
+.step-btn.data-v-63772556 {
+	width: 60rpx;
+	height: 60rpx;
+	text-align: center;
+	line-height: 56rpx;
+	font-size: 36rpx;
+	background: #f9f9f9;
+	color: #666;
+}
+.step-btn.disabled.data-v-63772556 {
+	color: #ccc;
+}
+.count-num.data-v-63772556 {
+	width: 80rpx;
+	text-align: center;
+	font-size: 30rpx;
+	font-weight: bold;
+}
+.section-title.data-v-63772556 {
+	font-size: 28rpx;
+	font-weight: bold;
+	padding: 30rpx 0 20rpx;
+	border-bottom: 1rpx solid #f8f8f8;
+}
+.pay-option.data-v-63772556 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 100rpx;
+}
+.pay-left.data-v-63772556 {
+	display: flex;
+	align-items: center;
+	font-size: 28rpx;
+}
+.icon.data-v-63772556 {
+	margin-right: 16rpx;
+	font-size: 32rpx;
+}
+.submit-bar.data-v-63772556 {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 120rpx;
+	background: #fff;
+	border-top: 1rpx solid #eee;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 40rpx;
+	box-sizing: border-box;
+	z-index: 99;
+}
+.total-label.data-v-63772556 {
+	font-size: 24rpx;
+	color: #666;
+	margin-right: 10rpx;
+}
+.currency.data-v-63772556 {
+	color: #ff4d4f;
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.total-price.data-v-63772556 {
+	color: #ff4d4f;
+	font-size: 44rpx;
+	font-weight: bold;
+}
+.submit-btn.data-v-63772556 {
+	background: linear-gradient(90deg, #00B4F6, #0086F6);
+	color: #fff;
+	border-radius: 44rpx;
+	height: 88rpx;
+	line-height: 88rpx;
+	padding: 0 60rpx;
+	margin: 0;
+	font-weight: bold;
+	font-size: 30rpx;
+}
+

@@ -1,0 +1,59 @@
+
+.order-list-container.data-v-127632e4 { background: #f8f9fb; min-height: 100vh;
+}
+.status-tabs.data-v-127632e4 { display: flex; background: #fff; height: 90rpx; align-items: center; position: -webkit-sticky; position: sticky; top: 0; z-index: 10; border-bottom: 1rpx solid #eee;
+}
+.tab-item.data-v-127632e4 { flex: 1; text-align: center; font-size: 28rpx; color: #666; position: relative;
+}
+.tab-item.active.data-v-127632e4 { color: #0086F6; font-weight: bold;
+}
+.tab-item.active.data-v-127632e4::after { content: ''; position: absolute; bottom: -10rpx; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); width: 40rpx; height: 4rpx; background: #0086F6;
+}
+.order-scroll.data-v-127632e4 { height: calc(100vh - 90rpx); padding: 20rpx; box-sizing: border-box;
+}
+.order-card.data-v-127632e4 { background: #fff; border-radius: 20rpx; padding: 24rpx; margin-bottom: 24rpx; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.02);
+}
+.card-header.data-v-127632e4 { display: flex; justify-content: space-between; border-bottom: 1rpx solid #f2f2f2; padding-bottom: 16rpx;
+}
+.order-sn.data-v-127632e4 { font-size: 24rpx; color: #999;
+}
+.status-text.data-v-127632e4 { font-size: 26rpx; font-weight: bold;
+}
+.status-0.data-v-127632e4 { color: #ff4d4f;
+}
+.status-1.data-v-127632e4 { color: #0086F6;
+}
+.status-3.data-v-127632e4 { color: #52c41a;
+}
+.card-body.data-v-127632e4 { padding: 24rpx 0;
+}
+.h-name.data-v-127632e4 { font-size: 32rpx; font-weight: bold; color: #333; display: block;
+}
+.r-type.data-v-127632e4 { font-size: 26rpx; color: #666; margin-top: 8rpx; display: block;
+}
+.date-info.data-v-127632e4 { font-size: 24rpx; color: #999; margin-top: 16rpx;
+}
+.total-days.data-v-127632e4 { margin-left: 20rpx; color: #333;
+}
+.card-footer.data-v-127632e4 { display: flex; justify-content: space-between; align-items: center; border-top: 1rpx solid #f2f2f2; padding-top: 16rpx;
+}
+.price-box.data-v-127632e4 { display: flex; align-items: baseline;
+}
+.label.data-v-127632e4 { font-size: 24rpx; color: #999; margin-right: 8rpx;
+}
+.unit.data-v-127632e4 { font-size: 24rpx; color: #333; font-weight: bold;
+}
+.amount.data-v-127632e4 { font-size: 36rpx; font-weight: bold; color: #333;
+}
+.actions.data-v-127632e4 { display: flex; gap: 16rpx;
+}
+.btn.data-v-127632e4 { font-size: 24rpx; border-radius: 30rpx; padding: 0 30rpx; height: 60rpx; line-height: 60rpx; margin: 0; border: none;
+}
+.pay-btn.data-v-127632e4 { background: #0086F6; color: #fff;
+}
+/* ✨ 评价按钮样式 */
+.comment-btn.data-v-127632e4 { background: #fff; color: #0086F6; border: 1rpx solid #0086F6;
+}
+.empty-box.data-v-127632e4 { text-align: center; color: #999; padding-top: 100rpx; font-size: 28rpx;
+}
+

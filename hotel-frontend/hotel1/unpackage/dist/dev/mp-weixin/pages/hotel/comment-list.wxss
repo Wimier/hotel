@@ -1,0 +1,123 @@
+
+.comment-list-container.data-v-3976a880 {
+	background: #f8f9fb;
+	min-height: 100vh;
+}
+.score-header.data-v-3976a880 {
+	background: #fff;
+	padding: 40rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1rpx solid #eee;
+}
+.left.data-v-3976a880 {
+	display: flex;
+	align-items: center;
+}
+.big-score.data-v-3976a880 {
+	font-size: 60rpx;
+	font-weight: bold;
+	color: #ff9900;
+	margin-right: 20rpx;
+}
+.score-label.data-v-3976a880 {
+	font-size: 24rpx;
+	color: #999;
+	display: block;
+}
+.total-count.data-v-3976a880 {
+	font-size: 24rpx;
+	color: #999;
+}
+.comment-scroll.data-v-3976a880 {
+	height: calc(100vh - 160rpx);
+	padding: 20rpx;
+	box-sizing: border-box;
+}
+.comment-item.data-v-3976a880 {
+	background: #fff;
+	border-radius: 20rpx;
+	padding: 30rpx;
+	margin-bottom: 20rpx;
+}
+.u-info.data-v-3976a880 {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20rpx;
+}
+.avatar.data-v-3976a880 {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+	background: #f0f0f0;
+}
+.u-right.data-v-3976a880 {
+	margin-left: 20rpx;
+	flex: 1;
+}
+.u-top.data-v-3976a880 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 4rpx;
+}
+.u-name.data-v-3976a880 {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333;
+}
+.c-date.data-v-3976a880 {
+	font-size: 22rpx;
+	color: #bbb;
+}
+.c-content.data-v-3976a880 {
+	font-size: 28rpx;
+	color: #333;
+	line-height: 1.6;
+	margin: 20rpx 0;
+}
+.c-images.data-v-3976a880 {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10rpx;
+	margin-bottom: 20rpx;
+}
+.c-images image.data-v-3976a880 {
+	width: 160rpx;
+	height: 160rpx;
+	border-radius: 8rpx;
+}
+.room-type-tag.data-v-3976a880 {
+	font-size: 22rpx;
+	color: #999;
+	background: #f5f5f5;
+	padding: 4rpx 16rpx;
+	border-radius: 20rpx;
+}
+.reply-box.data-v-3976a880 {
+	margin-top: 24rpx;
+	background: #f9f9f9;
+	padding: 20rpx;
+	border-radius: 12rpx;
+	border-left: 6rpx solid #0086F6;
+}
+.reply-title.data-v-3976a880 {
+	font-size: 24rpx;
+	font-weight: bold;
+	color: #0086F6;
+	display: block;
+	margin-bottom: 8rpx;
+}
+.reply-text.data-v-3976a880 {
+	font-size: 24rpx;
+	color: #666;
+	line-height: 1.5;
+}
+.empty-box.data-v-3976a880 {
+	text-align: center;
+	padding-top: 100rpx;
+	color: #999;
+	font-size: 28rpx;
+}
+

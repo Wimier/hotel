@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.hotel.mapper.HotelInfoMapper">
+
+    <resultMap type="HotelInfo" id="HotelInfoResult">
+        <result property="id"    column="id"    />
+        <result property="nameCn"    column="name_cn"    />
+        <result property="nameEn"    column="name_en"    />
+        <result property="province"    column="province"    />
+        <result property="city"    column="city"    />
+        <result property="district"    column="district"    />
+        <result property="detailAddress"    column="detail_address"    />
+        <result property="longitude"    column="longitude"    />
+        <result property="latitude"    column="latitude"    />
+        <result property="bannerUrl"    column="banner_url"    />
+        <result property="starRating"    column="star_rating"    />
+        <result property="openingDate"    column="opening_date"    />
+        <result property="price"    column="price"    />
+        <result property="status"    column="status"    />
+        <result property="rejectReason"    column="reject_reason"    />
+        <result property="merchantId"    column="merchant_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="park"    column="park"    />
+        <result property="score"    column="score"    />
+        <result property="hasWifi"    column="has_wifi"    />
+        <result property="hasElevator"    column="has_elevator"    />
+        <result property="phone"    column="phone"    />
+    </resultMap>
+
+    <sql id="selectHotelInfoVo">
+        select id, name_cn, name_en, province, city, district, detail_address, longitude, latitude, banner_url, star_rating, opening_date, price, status, reject_reason, merchant_id, create_by, create_time, update_by, update_time, remark, park,score, has_wifi, has_elevator,phone from hotel_info
+    </sql>
+
+    <select id="selectHotelInfoList" parameterType="HotelInfo" resultMap="HotelInfoResult">
+        <include refid="selectHotelInfoVo"/>
+        <where>
+            <if test="status != null and status != ''"> and status = #{status}</if>
+            <if test="province != null and province != ''">
+                and province like concat('%', #{province}, '%')
+            </if>
+            <if test="city != null and city != ''">
+                and city like concat('%', #{city}, '%')
+            </if>
+            <if test="district != null and district != ''">
+                and district like concat('%', #{district}, '%')
+            </if>
+
+            <if test="starRating != null"> and star_rating = #{starRating}</if>
+
+            <if test="park != null and park != ''"> and park = #{park}</if>
+            <if test="hasWifi != null"> and has_wifi = #{hasWifi}</if>
+            <if test="hasElevator != null"> and has_elevator = #{hasElevator}</if>
+            <if test="merchantId != null"> and merchant_id = #{merchantId}</if>
+            <if test="params.keyword != null and params.keyword != ''">
+                and (
+                name_cn like concat('%', #{params.keyword}, '%')
+                or name_en like concat('%', #{params.keyword}, '%')
+                or detail_address like concat('%', #{params.keyword}, '%')
+                )
+            </if>
+
+
+        </where>
+        ORDER BY score DESC, create_time DESC
+    </select>
+
+    <select id="selectHotelInfoById" parameterType="Long" resultMap="HotelInfoResult">
+        <include refid="selectHotelInfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertHotelInfo" parameterType="HotelInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into hotel_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="nameCn != null and nameCn != ''">name_cn,</if>
+            <if test="nameEn != null">name_en,</if>
+            <if test="province != null">province,</if>
+            <if test="city != null">city,</if>
+            <if test="district != null">district,</if>
+            <if test="detailAddress != null">detail_address,</if>
+            <if test="longitude != null">longitude,</if>
+            <if test="latitude != null">latitude,</if>
+            <if test="bannerUrl != null">banner_url,</if>
+            <if test="starRating != null">star_rating,</if>
+            <if test="openingDate != null">opening_date,</if>
+            <if test="price != null">price,</if>
+            <if test="status != null">status,</if>
+            <if test="rejectReason != null">reject_reason,</if>
+            <if test="merchantId != null">merchant_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="park != null">park,</if>
+            <if test="score != null">score,</if>
+            <if test="hasWifi != null">has_wifi,</if>
+            <if test="hasElevator != null">has_elevator,</if>
+            <if test="phone != null">phone,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="nameCn != null and nameCn != ''">#{nameCn},</if>
+            <if test="nameEn != null">#{nameEn},</if>
+            <if test="province != null">#{province},</if>
+            <if test="city != null">#{city},</if>
+            <if test="district != null">#{district},</if>
+            <if test="detailAddress != null">#{detailAddress},</if>
+            <if test="longitude != null">#{longitude},</if>
+            <if test="latitude != null">#{latitude},</if>
+            <if test="bannerUrl != null">#{bannerUrl},</if>
+            <if test="starRating != null">#{starRating},</if>
+            <if test="openingDate != null">#{openingDate},</if>
+            <if test="price != null">#{price},</if>
+            <if test="status != null">#{status},</if>
+            <if test="rejectReason != null">#{rejectReason},</if>
+            <if test="merchantId != null">#{merchantId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="park != null">#{park},</if>
+            <if test="score != null">#{score},</if>
+            <if test="hasWifi != null">#{hasWifi},</if>
+            <if test="hasElevator != null">#{hasElevator},</if>
+            <if test="phone != null">#{phone},</if>
+        </trim>
+    </insert>
+
+    <update id="updateHotelInfo" parameterType="HotelInfo">
+        update hotel_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="nameCn != null and nameCn != ''">name_cn = #{nameCn},</if>
+            <if test="nameEn != null">name_en = #{nameEn},</if>
+            <if test="province != null">province = #{province},</if>
+            <if test="city != null">city = #{city},</if>
+            <if test="district != null">district = #{district},</if>
+            <if test="detailAddress != null">detail_address = #{detailAddress},</if>
+            <if test="longitude != null">longitude = #{longitude},</if>
+            <if test="latitude != null">latitude = #{latitude},</if>
+            <if test="bannerUrl != null">banner_url = #{bannerUrl},</if>
+            <if test="starRating != null">star_rating = #{starRating},</if>
+            <if test="openingDate != null">opening_date = #{openingDate},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="rejectReason != null">reject_reason = #{rejectReason},</if>
+            <if test="merchantId != null">merchant_id = #{merchantId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="park != null">park = #{park},</if>
+            <if test="score != null">score = #{score},</if>
+            <if test="hasWifi != null">has_wifi = #{hasWifi},</if>
+            <if test="hasElevator != null">has_elevator = #{hasElevator},</if>
+            <if test="phone != null">phone = #{phone},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHotelInfoById" parameterType="Long">
+        delete from hotel_info where id = #{id}
+    </delete>
+
+    <delete id="deleteHotelInfoByIds" parameterType="String">
+        delete from hotel_info where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
