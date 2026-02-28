@@ -2,7 +2,7 @@
 
 ---
 
-# 🏨 易旅酒店在线预订与管理系统 (Hotel Booking Full-Stack System)
+# 🏨 易宿酒店在线预订与管理系统 (Hotel Booking Full-Stack System)
 
 ## 📝 项目简介
 
