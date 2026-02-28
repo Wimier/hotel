@@ -58,12 +58,12 @@ public class HotelCommentController extends BaseController
         List<HotelComment> list = hotelCommentService.selectHotelCommentList(hotelComment);
         TableDataInfo rspData = getDataTable(list);
 
-        // ✨ 核心修改：如果查询的是某个酒店的评价，顺便把该酒店的最新评分查出来
+        // 如果查询的是某个酒店的评价，顺便把该酒店的最新评分查出来
         if (hotelComment.getHotelId() != null) {
             HotelInfo hotel = hotelInfoService.selectHotelInfoById(hotelComment.getHotelId());
             if (hotel != null && hotel.getScore() != null) {
                 // 将评分放入 AjaxResult 的扩展字段中（RuoYi 的 TableDataInfo 默认带 code, msg, rows, total）
-                // 我们借用 msg 传递评分，或者封装一个更标准的返回类
+                // 借用 msg 传递评分，或者封装一个更标准的返回类
                 System.out.println("评分========="+hotel.getScore());
                 rspData.setMsg(hotel.getScore().toString());
             }

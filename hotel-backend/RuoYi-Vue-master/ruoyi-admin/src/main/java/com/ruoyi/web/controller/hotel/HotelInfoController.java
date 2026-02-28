@@ -41,7 +41,7 @@ public class HotelInfoController extends BaseController
     @GetMapping("/list")
     public TableDataInfo list(HotelInfo hotelInfo)
     {
-        // 逻辑：如果不是管理员，强制只能查询属于自己的商户数据
+        // 逻辑：如果不是管理员，只能查询属于自己的商户数据
         if (!SecurityUtils.isAdmin(SecurityUtils.getUserId())) {
             hotelInfo.setMerchantId(SecurityUtils.getUserId());
         }
@@ -53,7 +53,7 @@ public class HotelInfoController extends BaseController
     /**
      * 获取酒店信息详细信息
      */
-//    @PreAuthorize("@ss.hasPermi('hotel:info:query')") // 必须是 query，因为这是查询详情
+//    @PreAuthorize("@ss.hasPermi('hotel:info:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
@@ -91,7 +91,7 @@ public class HotelInfoController extends BaseController
         hotelInfo.setUpdateBy(SecurityUtils.getUsername());
 
         // 2. 安全逻辑：如果是商户修改，状态强制打回“审核中”
-        // 这样可以防止商户把已通过的酒店偷偷改成非法内容
+        // 防止商户把已通过的酒店偷偷改成非法内容
         if (!SecurityUtils.isAdmin(SecurityUtils.getUserId())) {
             hotelInfo.setStatus("AUDITING");
         }
