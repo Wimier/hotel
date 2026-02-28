@@ -15,12 +15,12 @@
 
 			<view class="order-card" v-for="item in orderList" :key="item.id">
 				<view class="card-main" @click="goOrderDetail(item.id)">
-				    <image :src="getImageUrl(item.roomImage)" mode="aspectFill" class="hotel-img"></image>
-				    <view class="info-right">
-				        <text class="hotel-name">{{ item.hotelName || '酒店预订' }}</text>
-				        <text class="room-desc">{{ item.roomTypeName }} · 1间</text>
-				        <text class="date-desc">入住时间：{{ formatDate(item.checkInDate) }}</text>
-				    </view>
+					<image :src="getImageUrl(item.roomImage)" mode="aspectFill" class="hotel-img"></image>
+					<view class="info-right">
+						<text class="hotel-name">{{ item.hotelName || '酒店预订' }}</text>
+						<text class="room-desc">{{ item.roomTypeName }} · 1间</text>
+						<text class="date-desc">入住时间：{{ formatDate(item.checkInDate) }}</text>
+					</view>
 				</view>
 
 				<view class="card-footer">
@@ -67,19 +67,22 @@
 		},
 		methods: {
 			goCommentDetail(orderId) {
-			    const order = this.orderList.find(o => o.id === orderId);
-			    if (order && order.commentId) {
-			        uni.navigateTo({
-			            url: `/pages/comment/comment-detail?id=${order.commentId}`
-			        });
-			    } else {
-			        uni.showToast({ title: '未找到评价信息', icon: 'none' });
-			    }
+				const order = this.orderList.find(o => o.id === orderId);
+				if (order && order.commentId) {
+					uni.navigateTo({
+						url: `/pages/comment/comment-detail?id=${order.commentId}`
+					});
+				} else {
+					uni.showToast({
+						title: '未找到评价信息',
+						icon: 'none'
+					});
+				}
 			},
 			async fetchOrders() {
 				const params = {
 					...this.queryParams,
-					status: 3, // 必须是已完成订单
+					status: 3, // 已完成订单
 					commentStatus: this.currentTab // 0为未评，1为已评
 				};
 
@@ -113,21 +116,15 @@
 			},
 			//
 			getImageUrl(url) {
-			    // 1. 如果字段为空，返回默认图
-			    if (!url) return '/static/default.png';
-			
-			    // 2. ✨ 关键：必须先用逗号拆分，只取第一个路径
-			    // 这一步会将 "/profile/1.jpg,/profile/2.jpg" 变成 "/profile/1.jpg"
-			    const firstUrl = url.split(',')[0];
-			
-			    // 3. 判断拆分后的第一个路径是否是完整 http 链接
-			    if (firstUrl.startsWith('http')) {
-			        return firstUrl;
-			    }
-			
-			    // 4. 否则拼接后端地址
-			    // 请确保你的 data() 里定义了 baseUrl: 'http://localhost:8080'
-			    return this.baseUrl + firstUrl;
+				//如果字段为空，返回默认图
+				if (!url) return '/static/default.png';
+
+				const firstUrl = url.split(',')[0];
+
+				if (firstUrl.startsWith('http')) {
+					return firstUrl;
+				}
+				return this.baseUrl + firstUrl;
 			},
 			formatDate(date) {
 				return date ? date.substring(0, 10) : '';
