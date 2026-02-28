@@ -103,7 +103,6 @@
 				`${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
 			return {
 				bannerList: [],
-				// 默认基础地址，需与后台上传路径对应
 				baseUrl: 'http://localhost:8080',
 				searchForm: {
 					city: '上海',
@@ -113,7 +112,7 @@
 					realCheckOut: formatYYYYMMDD(tomorrow),
 					days: 1,
 					keyword: '',
-					filters: [] // 这里存放如 ['park', 'wifi'] 这种简单的字符串数组
+					filters: [] // 快捷标签
 				},
 				quickTags: [{
 						label: '五星/豪华',
@@ -155,13 +154,12 @@
 			this.showCalendar = false;
 		},
 		computed: {
-			// ✨ 新增：用于首页显示的入住日期 (格式：02月25日)
+			// 入住日期 (格式：02月25日)
 			inDateDisplay() {
 				if (!this.searchForm.checkInDate) return '';
 				const [y, m, d] = this.searchForm.checkInDate.split('-');
 				return `${m}月${d}日`;
 			},
-			// ✨ 新增：用于首页显示的离店日期
 			outDateDisplay() {
 				if (!this.searchForm.checkOutDate) return '';
 				const [y, m, d] = this.searchForm.checkOutDate.split('-');
@@ -175,17 +173,14 @@
 					status: 1
 				}); // 只查询上线的广告
 				if (res.code === 200) {
-					// 格式化图片地址
 					this.bannerList = res.rows.map(item => {
 						return {
 							...item,
-							// 如果是相对路径则拼接 baseUrl
 							imgUrl: item.imgUrl.startsWith('http') ? item.imgUrl : this.baseUrl + item.imgUrl
 						}
 					});
 				}
 			},
-			// 修复图片路径显示问题
 			getImageUrl(url) {
 				if (!url) return '/static/default-hotel.png';
 				if (url.startsWith('http')) return url;
@@ -201,7 +196,6 @@
 					this.searchForm.filters.push(val);
 				}
 			},
-
 			// 唤起日历
 			openCalendar() {
 				this.$refs.calendar.open();
@@ -218,13 +212,13 @@
 				this.searchForm.checkInDate = startDate;
 				this.searchForm.checkOutDate = endDate;
 
-				// 计算天数 (replace 为兼容 iOS)
+				// 计算天数 
 				const d1 = new Date(startDate.replace(/-/g, '/'));
 				const d2 = new Date(endDate.replace(/-/g, '/'));
 				this.searchForm.days = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
 			},
 
-			// ✨ 执行搜索跳转：Params 里的日期已是标准 YYYY-MM-DD
+			//  执行搜索跳转
 			doSearch() {
 				const params = encodeURIComponent(JSON.stringify(this.searchForm));
 				uni.navigateTo({
@@ -240,7 +234,7 @@
 			goHotelDetail(hotelId) {
 				if (!hotelId) return;
 
-				// 1. 获取今天和明天的日期
+				// 获取今天和明天的日期
 				const now = new Date();
 				const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
 
@@ -250,7 +244,6 @@
 				const checkIn = formatDate(now);
 				const checkOut = formatDate(tomorrow);
 
-				// 2. 跳转并传参
 				uni.navigateTo({
 					url: `/pages/detail/detail?id=${hotelId}&checkInDate=${checkIn}&checkOutDate=${checkOut}&days=1`
 				});
@@ -288,7 +281,7 @@
 							},
 							success: (re) => {
 								uni.hideLoading();
-								// 获取城市名并去除“市”字，匹配后端搜索习惯
+								// 获取城市名并去除“市”字
 								let city = re.result.address_component.city;
 								this.searchForm.city = city.replace('市', '');
 
