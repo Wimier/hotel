@@ -85,7 +85,7 @@
 				}
 			},
 
-			// 修改头像 logic
+			// 修改头像
 			handleUpdateAvatar() {
 				uni.chooseImage({
 					count: 1,
@@ -118,7 +118,7 @@
 				});
 			},
 
-			// 修改昵称 logic
+			// 修改昵称 
 			openNicknameDialog() {
 				this.$refs.nicknamePopup.open();
 			},
@@ -137,15 +137,12 @@
 
 			// 导航跳转
 			navTo(url) {
-				// 定义你 pages.json 中所有的 TabBar 页面路径
 				const tabBarPages = [
 					'/pages/index/index',
 					'/pages/order/order',
 					'/pages/my/my',
-					'/pages/comment/comment' // 如果你把评价列表也设成了底部菜单
+					'/pages/comment/comment'
 				];
-
-				// 判断目标路径是否在 TabBar 列表中
 				if (tabBarPages.includes(url)) {
 					uni.switchTab({
 						url: url
@@ -157,7 +154,6 @@
 				}
 			},
 
-			// 用户协议 (写死展示)
 			showAgreement() {
 				uni.showModal({
 					title: '用户协议',
@@ -166,8 +162,6 @@
 					confirmText: '我知道了'
 				});
 			},
-
-			// 退出登录
 			handleLogout() {
 				uni.showModal({
 					title: '提示',

@@ -35,7 +35,6 @@
 		},
 		methods: {
 			async handleSave() {
-				// 1. 前端基础校验
 				if (!this.form.oldPassword) {
 					return uni.showToast({ title: '请输入原密码', icon: 'none' });
 				}
@@ -52,10 +51,8 @@
 				uni.showLoading({ title: '正在提交...', mask: true });
 				
 				try {
-					// 发送 JSON Body 请求
 					const res = await updateUserPwd(this.form.oldPassword, this.form.newPassword);
 					
-					// 2. 根据后端返回状态处理逻辑
 					if (res.code === 200) {
 						uni.showToast({
 							title: '修改成功',
@@ -63,7 +60,6 @@
 							duration: 2000
 						});
 						
-						// ✨ 3. 自动退出登录逻辑
 						setTimeout(() => {
 							// 清除本地存储的所有数据（Token、用户信息等）
 							uni.clearStorageSync();
@@ -75,7 +71,6 @@
 						}, 2000);
 						
 					} else {
-						// 捕捉并显示后端返回的错误（例如：旧密码错误）
 						uni.showToast({
 							title: res.msg || '修改失败',
 							icon: 'none',
