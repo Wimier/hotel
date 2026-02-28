@@ -22,7 +22,8 @@
 						class="avatar" mode="aspectFill"></image>
 					<view class="u-right">
 						<view class="u-top">
-							<text class="u-name">{{ item.isAnonymous === 1 ? '匿***户' : (item.userName || '手机用户') }}</text>
+							<text
+								class="u-name">{{ item.isAnonymous === 1 ? '匿***户' : (item.userName || '手机用户') }}</text>
 							<text class="c-date">{{ formatDate(item.createTime) }}</text>
 						</view>
 						<uni-rate :value="item.score" readonly :size="14" />
@@ -50,7 +51,9 @@
 </template>
 
 <script>
-	import { listComment } from '@/api/comment.js'
+	import {
+		listComment
+	} from '@/api/comment.js'
 
 	export default {
 		data() {
@@ -82,14 +85,14 @@
 				const res = await listComment(params);
 				if (res.code === 200) {
 					const rows = res.rows.map(item => {
-						// 1. 处理评价图片路径
 						let imgs = [];
 						if (item.images) {
 							imgs = item.images.split(',').map(url => this.getFullUrl(url));
 						}
-						
-						// 2. ✨ 处理系统用户头像路径（仅在非匿名时处理）
-						let realAvatar = item.userAvatar ? this.getFullUrl(item.userAvatar) : '/static/anonymous-avatar.png';
+
+						//处理系统用户头像路径（仅在非匿名时处理）
+						let realAvatar = item.userAvatar ? this.getFullUrl(item.userAvatar) :
+							'/static/anonymous-avatar.png';
 
 						return {
 							...item,
@@ -101,13 +104,11 @@
 					this.commentList = this.queryParams.pageNum === 1 ? rows : this.commentList.concat(rows);
 					this.total = res.total;
 
-					// ✨ 核心逻辑：从后端 Controller 的 msg 字段中读取酒店总分
 					if (this.queryParams.pageNum === 1 && res.msg) {
 						this.averageScore = parseFloat(res.msg).toFixed(1);
 					}
 				}
 			},
-			// 通用的图片/头像 URL 补全方法
 			getFullUrl(url) {
 				if (!url) return '';
 				return url.startsWith('http') ? url : this.baseUrl + url;

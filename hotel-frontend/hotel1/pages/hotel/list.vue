@@ -151,39 +151,35 @@
 				}
 			}
 		},
-		//
 		onLoad(options) {
-		    if (options.params) {
-		        const params = JSON.parse(decodeURIComponent(options.params));
-		        
-		        // ✨ 1. 同步逻辑日期：用于发给后端请求
-		        this.queryParams.city = params.city;
-		        this.queryParams.keyword = params.keyword;
-		        // 确保 queryParams 中也存一份标准日期，方便后续传给详情页
-		        this.queryParams.checkInDate = params.checkInDate; 
-		        this.queryParams.checkOutDate = params.checkOutDate;
-		        this.queryParams.days = params.days || 1;
-		
-		        // ✨ 2. 同步显示日期：用于界面顶部的“MM.DD”展示
-		        this.displayForm = {
-		            city: params.city,
-		            // 直接从 '2026-03-01' 截取得到 '03.01'
-		            inDateText: params.checkInDate ? params.checkInDate.substring(5).replace(/-/g, '.') : '',
-		            outDateText: params.checkOutDate ? params.checkOutDate.substring(5).replace(/-/g, '.') : '',
-		            keyword: params.keyword
-		        };
-		
-		        // 处理快速筛选标签
-		        if (params.filters) {
-		            params.filters.forEach(tag => {
-		                if (tag === 'star5') this.queryParams.starRating = 5;
-		                if (tag === 'park') this.queryParams.park = '免费';
-		                if (tag === 'wifi') this.queryParams.hasWifi = 1;
-		            });
-		        }
-		    }
-		    this.updateMapByCity(this.queryParams.city);
-		    this.loadData();
+			if (options.params) {
+				const params = JSON.parse(decodeURIComponent(options.params));
+
+				this.queryParams.city = params.city;
+				this.queryParams.keyword = params.keyword;
+				this.queryParams.checkInDate = params.checkInDate;
+				this.queryParams.checkOutDate = params.checkOutDate;
+				this.queryParams.days = params.days || 1;
+
+				// 显示日期：MM.DD
+				this.displayForm = {
+					city: params.city,
+					inDateText: params.checkInDate ? params.checkInDate.substring(5).replace(/-/g, '.') : '',
+					outDateText: params.checkOutDate ? params.checkOutDate.substring(5).replace(/-/g, '.') : '',
+					keyword: params.keyword
+				};
+
+				// 处理快速筛选标签
+				if (params.filters) {
+					params.filters.forEach(tag => {
+						if (tag === 'star5') this.queryParams.starRating = 5;
+						if (tag === 'park') this.queryParams.park = '免费';
+						if (tag === 'wifi') this.queryParams.hasWifi = 1;
+					});
+				}
+			}
+			this.updateMapByCity(this.queryParams.city);
+			this.loadData();
 		},
 		onShow() {
 			uni.$once('updateCity', (city) => {
@@ -200,18 +196,15 @@
 				this.refreshList(); // 重新请求第一页数据
 			},
 
-			// ✨新增方法 2：全局筛选重置
 			resetAllFilters() {
-				// 恢复初始状态
-				this.sortType = 'default'; // 恢复默认排序
-				this.priceOrder = 'asc'; // 恢复价格升序
-				this.selectedStarLabel = ''; // 清空星级显示文字
+				this.sortType = 'default';
+				this.priceOrder = 'asc';
+				this.selectedStarLabel = '';
 
-				// 重置所有查询参数
-				this.queryParams.starRating = undefined; // 清空星级筛选
-				this.queryParams.keyword = ''; // 清空关键字
-				this.queryParams.park = undefined; // 清空停车筛选
-				this.queryParams.hasWifi = undefined; // 清空WiFi筛选
+				this.queryParams.starRating = undefined;
+				this.queryParams.keyword = '';
+				this.queryParams.park = undefined;
+				this.queryParams.hasWifi = undefined;
 
 				this.refreshList(); // 刷新数据
 				uni.showToast({
@@ -289,26 +282,22 @@
 			},
 			//
 			onCalendarConfirm(e) {
-			    const dateRange = Array.isArray(e) ? e : e.range.data;
-			    if (!dateRange || dateRange.length < 2) return;
-			
-			    const startDate = dateRange[0]; // '2026-03-01'
-			    const endDate = dateRange[dateRange.length - 1];
-			
-			    // ✨ 1. 更新后端需要的标准格式
-			    this.queryParams.checkInDate = startDate;
-			    this.queryParams.checkOutDate = endDate;
-			
-			    // ✨ 2. 更新前端显示的精简格式
-			    this.displayForm.inDateText = startDate.substring(5).replace(/-/g, '.');
-			    this.displayForm.outDateText = endDate.substring(5).replace(/-/g, '.');
-			
-			    // 3. 重新计算天数
-			    const d1 = new Date(startDate.replace(/-/g, '/'));
-			    const d2 = new Date(endDate.replace(/-/g, '/'));
-			    this.queryParams.days = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
-			
-			    this.refreshList();
+				const dateRange = Array.isArray(e) ? e : e.range.data;
+				if (!dateRange || dateRange.length < 2) return;
+
+				const startDate = dateRange[0]; // '2026-03-01'
+				const endDate = dateRange[dateRange.length - 1];
+				this.queryParams.checkInDate = startDate;
+				this.queryParams.checkOutDate = endDate;
+
+				this.displayForm.inDateText = startDate.substring(5).replace(/-/g, '.');
+				this.displayForm.outDateText = endDate.substring(5).replace(/-/g, '.');
+
+				const d1 = new Date(startDate.replace(/-/g, '/'));
+				const d2 = new Date(endDate.replace(/-/g, '/'));
+				this.queryParams.days = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
+
+				this.refreshList();
 			},
 			onStarChange(e) {
 				const item = this.starOptions[e.detail.value];
@@ -338,9 +327,9 @@
 			},
 			//
 			goDetail(id) {
-			    uni.navigateTo({
-			        url: `/pages/detail/detail?id=${id}&checkInDate=${this.queryParams.checkInDate}&checkOutDate=${this.queryParams.checkOutDate}&days=${this.queryParams.days}`
-			    });
+				uni.navigateTo({
+					url: `/pages/detail/detail?id=${id}&checkInDate=${this.queryParams.checkInDate}&checkOutDate=${this.queryParams.checkOutDate}&days=${this.queryParams.days}`
+				});
 			},
 			loadMore() {
 				this.queryParams.pageNum++;
