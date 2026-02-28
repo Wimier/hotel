@@ -81,12 +81,12 @@
 				roomType: {},
 				payWay: 'wechat',
 				orderForm: {
-					userId: null, // 实际开发应从系统获取当前登录用户ID
+					userId: null,
 					hotelId: null,
 					roomTypeId: null,
 					roomCount: 1,
-					checkInDate: '', // 存储格式 YYYY-MM-DD
-					checkOutDate: '', // 存储格式 YYYY-MM-DD
+					checkInDate: '',
+					checkOutDate: '',
 					guestName: '',
 					guestPhone: '',
 					totalDays: 1
@@ -94,16 +94,13 @@
 			};
 		},
 		computed: {
-			// 前端预览总价
 			referenceTotal() {
 				const price = parseFloat(this.roomType.price || 0);
 				return (price * this.orderForm.roomCount * this.orderForm.totalDays).toFixed(2);
 			},
-			// ✨ 新增：界面显示的入住日期 (MM-DD)
 			inDateText() {
 				return this.orderForm.checkInDate ? this.orderForm.checkInDate.substring(5) : '';
 			},
-			// ✨ 新增：界面显示的离店日期 (MM-DD)
 			outDateText() {
 				return this.orderForm.checkOutDate ? this.orderForm.checkOutDate.substring(5) : '';
 			}
@@ -112,7 +109,7 @@
 			const realUserId = uni.getStorageSync('userId');
 
 			if (!realUserId) {
-				// 如果没登录，引导去登录页或报错
+				// 如果没登录
 				uni.showToast({
 					title: '请先登录',
 					icon: 'none'
@@ -122,7 +119,6 @@
 				this.orderForm.userId = realUserId; // ✨ 赋值真实 ID
 				console.log(this.orderForm.userId)
 			}
-			// 1. 接收从详情页 (detail.vue) 传来的标准参数
 			if (options.hotelId && options.roomTypeId) {
 				this.hotelId = options.hotelId;
 				this.roomTypeId = options.roomTypeId;
@@ -133,8 +129,6 @@
 				this.orderForm.checkOutDate = options.checkOut; // '2026-03-03'
 				this.orderForm.totalDays = parseInt(options.days) || 1;
 			}
-
-			// 2. ✨ 修正：调用正确的数据加载方法
 			this.fetchStaticData();
 		},
 		methods: {
@@ -163,7 +157,6 @@
 			},
 
 			async submitOrder() {
-				// 1. 必填校验
 				if (!this.orderForm.guestName || !this.orderForm.guestPhone) {
 					return uni.showToast({
 						title: '请填写完整信息',
@@ -176,7 +169,7 @@
 				});
 
 				try {
-					// 2. 提交数据到后端
+					// 提交数据到后端
 					// 后端会自动根据日期校验库存并计算金额
 					const res = await addOrder({
 						userId: this.orderForm.userId,
@@ -189,20 +182,18 @@
 						guestPhone: this.orderForm.guestPhone
 					});
 
-					// 3. 处理结果
 					if (res.code === 200) {
 						uni.showToast({
 							title: '下单成功',
 							icon: 'success'
 						});
-						// 延迟跳转，让用户看清提示
 						setTimeout(() => {
 							uni.navigateTo({
 								url: '/pages/order/order'
-							}); // 跳转至你编写的订单列表页
+							});
 						}, 1500);
 					} else {
-						// ✨ 核心逻辑：直接展示后端抛出的库存不足信息
+						// 直接展示后端抛出的库存不足信息
 						// 例如："抱歉，该时段房源火爆，仅剩 X 间"
 						uni.showModal({
 							title: '预订失败',

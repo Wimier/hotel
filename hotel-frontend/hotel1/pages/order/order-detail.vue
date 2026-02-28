@@ -101,7 +101,7 @@
 				}
 			},
 
-			// ✨ 取消订单逻辑：状态改为 4
+			// 取消订单逻辑：状态改为 4
 			handleCancel() {
 				uni.showModal({
 					title: '提示',
@@ -123,7 +123,7 @@
 				});
 			},
 
-			// ✨ 申请退款逻辑：状态改为 5，包含日期校验
+			//申请退款逻辑：状态改为 5，包含日期校验
 			async handleRefund() {
 				// 1. 获取当前日期 (YYYY-MM-DD)
 				const now = new Date();
