@@ -29,10 +29,10 @@
 					</text>
 				</view>
 				<view class="date-row">
-					
+
 					<text class="comment-link" @click="goAllComments()">查看评论 ></text>
 				</view>
-				
+
 				<view class="address-row" @click="openMap">
 					<view class="addr-text">
 						<text class="icon-loc">📍</text>
@@ -150,7 +150,7 @@
 		onLoad(options) {
 			if (options.id) {
 				this.hotelId = options.id;
-				// ✨ 核心修改：接收从列表页传来的标准日期参数
+				// 接收从列表页传来的标准日期参数
 				if (options.checkInDate && options.checkOutDate) {
 					this.searchForm.checkInDate = options.checkInDate;
 					this.searchForm.checkOutDate = options.checkOutDate;
@@ -179,14 +179,14 @@
 		},
 		methods: {
 			goAllComments() {
-			    uni.navigateTo({
-			        url: `/pages/hotel/comment-list?hotelId=${this.hotelId}`
-			    });
+				uni.navigateTo({
+					url: `/pages/hotel/comment-list?hotelId=${this.hotelId}`
+				});
 			},
 			goToDetail(id) {
 				uni.navigateTo({
-				        url: `/pages/room-detail/room-detail?id=${id}&checkInDate=${this.searchForm.checkInDate}&checkOutDate=${this.searchForm.checkOutDate}&days=${this.searchForm.days}`
-				    });
+					url: `/pages/room-detail/room-detail?id=${id}&checkInDate=${this.searchForm.checkInDate}&checkOutDate=${this.searchForm.checkOutDate}&days=${this.searchForm.days}`
+				});
 			},
 			async fetchHotelData() {
 				uni.showLoading({
@@ -213,26 +213,21 @@
 			getImageUrl(url) {
 				if (!url) return '/static/default-hotel.jpg';
 
-				// ✨ 核心修改：如果包含多个图片（如逗号分隔），只取第一个
 				const firstUrl = url.split(',')[0];
-
-				// 判断是否已经是完整路径
 				if (firstUrl.startsWith('http')) {
 					return firstUrl;
 				}
-				// 否则拼接后端服务器地址
 				return 'http://localhost:8080' + firstUrl;
 			},
 			translateCategory(key) {
 				return this.categoryMap[key] || key;
 			},
 
-			// ✨ 修改：保存标准日期格式
 			onCalendarConfirm(e) {
 				const range = Array.isArray(e) ? e : e.range.data;
 				if (!range || range.length < 2) return;
 
-				this.searchForm.checkInDate = range[0]; // 保存 YYYY-MM-DD
+				this.searchForm.checkInDate = range[0];
 				this.searchForm.checkOutDate = range[range.length - 1];
 
 				const d1 = new Date(this.searchForm.checkInDate.replace(/-/g, '/'));
@@ -240,7 +235,7 @@
 				this.searchForm.days = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
 			},
 
-			// ✨ 修改：跳转下单页时携带标准日期参数
+			// 跳转下单页时携带标准日期参数
 			goBooking(room) {
 				uni.navigateTo({
 					url: `/pages/order/create?hotelId=${this.hotelId}&roomTypeId=${room.id}&checkIn=${this.searchForm.checkInDate}&checkOut=${this.searchForm.checkOutDate}&days=${this.searchForm.days}`
@@ -306,7 +301,8 @@
 		font-weight: bold;
 		color: #333;
 	}
-	.nameEn{
+
+	.nameEn {
 		font-size: 28rpx;
 		color: #787878;
 	}
@@ -327,12 +323,15 @@
 		color: #0086F6;
 		font-weight: bold;
 	}
-	.score-row .score{
+
+	.score-row .score {
 		color: #e50000;
 	}
-	.score-row .score-desc{
+
+	.score-row .score-desc {
 		color: #333;
 	}
+
 	.phone-row {
 		display: flex;
 		align-items: center;
@@ -340,11 +339,12 @@
 		font-size: 26rpx;
 		color: #666666;
 	}
-	.phone-row .title{
+
+	.phone-row .title {
 		color: #ff5500;
 	}
-	
-	.date-row{
+
+	.date-row {
 		color: #666;
 		display: flex;
 		align-items: center;
