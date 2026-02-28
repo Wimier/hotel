@@ -19,6 +19,5 @@ export function getOrder(id) {
 // 修改订单（用于模拟支付或取消
 //
 export function updateOrder(data) {
-  // ✨ 修正：使用 http.put 而不是 http()
   return http.put('/hotel/order', data)
 }
